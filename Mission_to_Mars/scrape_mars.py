@@ -4,6 +4,8 @@
 # define scrape function
 def scrape():
     from bs4 import BeautifulSoup as bs
+    from splinter import browser
+    import time
     #create variable with website to visit
     url = "https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest"
 
@@ -42,10 +44,7 @@ def scrape():
     print(news_title)
     print(news_par)
 
-
-    from splinter import Browser
-    import time
-
+    # store website
     URL = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html'
    
     browser.visit(URL)
