@@ -168,10 +168,12 @@ def scrape():
     dict_facts ={'mars_facts': dict_object}
     dict_imgs = {'mars_images_full': img_info}
 
-    # from collections import ChainMap
+    # # from collections import ChainMap
     # chain = ChainMap(dict_news,dict_pars, dict_feat, dict_facts, dict_imgs)
     
-    return dict_news,dict_pars,dict_feat,dict_facts,dict_imgs
+   
+
+    return dict_news, dict_pars, dict_feat, dict_facts, dict_imgs
     # print(mars_facts_df) 
     # print(mars_facts_df_redo) 
     # print(dict_facts) 
