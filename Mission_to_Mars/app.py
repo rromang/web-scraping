@@ -29,11 +29,18 @@ data = [scrape()]
 print(data)
 print(type(data))
 
-x = db.MarsInfo.insert_many([item for item in data])
+data_dict = {}
+for x in data:
+    data_dict.update(x)
+print(data_dict)
+
+
+# MarsInfo.insert_one(data_dict)
+
 
 #print list of the _id values of the inserted documents:
-print(x.inserted_ids)
-# db.MarsInfo.insert_one(data)
+
+db.MarsInfo.insert_one(data_dict)
 
 # cursor = db.MarsInfo.find()
 # for record in cursor:
