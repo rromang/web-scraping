@@ -112,7 +112,7 @@ def scrape():
         browser.visit(base_url + link)
         img_urls.append(browser.url)
         
-        time.sleep(15)
+        time.sleep(5)
     browser.quit()
 
     images = []
@@ -127,7 +127,7 @@ def scrape():
             link = link.a['href']
             images.append(link)
 
-    time.sleep(10)
+    time.sleep(5)
     print('--------- List of Image Links Created!')
 
     titles = []
@@ -144,7 +144,7 @@ def scrape():
             link = link.find('h2', class_='title').text
             titles.append(link)
 
-    time.sleep(10)
+    time.sleep(5)
 
     print('--------- List of Image Titles Created!')
 
@@ -157,12 +157,24 @@ def scrape():
             dict_info['img_url'] = image
             img_info.append(dict_info)
 
+    mars_facts_df_redo = mars_facts_df.set_index('Parameters')
+    dict_object = mars_facts_df_redo.to_dict()
     print('--------- Dictionary of Images and Titles Created!')
     print('--------------Process Done!')
     
-    dict_mars = {'title_news': news_title, 'article_par': news_par, 'featured_image': featured_url, 'mars_facts': mars_facts_df,
-    'mars_images_full': img_info}
-    return dict_mars
+    dict_news = {'title_news': news_title}
+    dict_pars = {'article_par': news_par}
+    dict_feat = {'featured_image': featured_url}
+    dict_facts ={'mars_facts': dict_object}
+    dict_imgs = {'mars_images_full': img_info}
+
+    # from collections import ChainMap
+    # chain = ChainMap(dict_news,dict_pars, dict_feat, dict_facts, dict_imgs)
+    
+    return dict_news,dict_pars,dict_feat,dict_facts,dict_imgs
+    # print(mars_facts_df) 
+    # print(mars_facts_df_redo) 
+    # print(dict_facts) 
     # print(dict_mars)
 
 # scrape()
