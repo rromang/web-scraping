@@ -20,8 +20,9 @@
     </div>
     
     <h2>Latest Mars News</h2>
-    <li> </li>
-
+    {% for information_data in information_data %}
+    <li>{{ information_data[title_news] }}</li>
+    {% endfor %}
   </div>
   </div>
 </body>

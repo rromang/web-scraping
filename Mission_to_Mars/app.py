@@ -19,22 +19,22 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/MarsDB")
 # Route to render index.html template using data from Mongo
 @app.route("/")
 def home():
-
+    information_collection = mongo.db.MarsInfo
     # Find one record of data from the mongo database
-    information_data = mongo.db.collection.find_one({"title_news": True})
+    information_data = information_collection.find()
 
     # Return template and data
-    return render_template("Mission_to_Mars/index.html", info=information_data)
+    return render_template("index.html", information_data=information_data)
 
 
 @app.route("/scrape")
 def scrape():
 
     # Run the scrape function
-    mars_data = scrape_mars.scrape_info()
+    mars_data = scrape_mars
 
     # Update the Mongo database using update and upsert=True
-    mongo.db.collection.update({}, mars_data, upsert=True)
+    mongo.db.MarsInfo.update({}, mars_data, upsert=True)
 
     # Redirect back to home page
     return redirect("/")

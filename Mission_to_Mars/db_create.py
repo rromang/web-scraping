@@ -30,7 +30,9 @@ MarsInfo = db.MarsInfo
 print(db.list_collection_names())
 
 data = scrape()
-print([item for item in data])
+mars_data = {}
+
+print([data for data in data])
 
 MarsInfo.insert_many([item for item in data])
 cursor = MarsInfo.find()

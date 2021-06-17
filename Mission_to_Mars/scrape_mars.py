@@ -171,7 +171,7 @@ def scrape():
     # # from collections import ChainMap
     # chain = ChainMap(dict_news,dict_pars, dict_feat, dict_facts, dict_imgs)
     
-   
+    # dict_data = {'news': dict_news, 'news info': dict_pars, "featured image": dict_feat, 'mars facts': dict_facts, 'mars images': dict_imgs}
 
     return dict_news, dict_pars, dict_feat, dict_facts, dict_imgs
     # print(mars_facts_df) 
