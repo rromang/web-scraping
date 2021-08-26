@@ -1,4 +1,4 @@
-# web-scraping-challenge
+# web-scraping
 
 ### Background:
 #### The homework assigned had the purpose of testing our skills and understanding about web scraping and rendering using MongoDB and Flask.
